@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%-include ("home.ejs")%>
+    <br><br>
+    <div class="container p-5 bg-dark">
+    <table class="table table-info p-5">
+        <tr>
+            <th>Sr.No</th>
+            <th>Dept Name</th>
+            <th>Delete</th>
+            <th>Update</th>
+        </tr>
+        <%
+        if(deptList.length!=0)
+        {
+           deptList.forEach((row,index)=>{
+        %>
+        <tr>
+            <td><%=index+1%></td>
+            <td><%=row.deptname%></td>
+            <td><a href="/deldept?did=<%= row.deptid %>">DELETE</a></td>
+            <td><a href="/upddept?dn=<%= row.deptname %>&did=<%= row.deptid %>">UPDATE</a></td>
+        </tr>
+        <%
+           });
+        }else
+        {
+        %>  
+           <tr><td colspan="4">No Data Present In Department Table</td></tr>
+        <%
+        }
+        %>
+        
+    </table>
+    </div>
+</body>
+</html>

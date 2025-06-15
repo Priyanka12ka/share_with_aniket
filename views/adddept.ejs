@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style.css">
+    
+</head>
+<body>
+    <%- include("home.ejs")%>
+    <br><br>
+    <form action="/adddept" method="post" name="frm">
+    <div class="container bg-dark p-5">
+        <div class="form-group">
+             <input type="text" name="deptname" value="" class="form-control control" placeholder="Enter Department Name">
+        </div>
+        <div class="form-group">
+             <input type="submit" name="s" value="Add Department" class="btn btn-primary control" >
+        </div>
+        <%
+        if(msg.length!=0)
+        {
+        %>
+        <div class="alert alert-success" role="alert">
+            <%= msg %>
+         </div>
+         <%
+        }
+        %>
+    </div>
+    </form>
+</body>
+</html>
