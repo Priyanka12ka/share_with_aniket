@@ -4,11 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script type="text/javascript" src='/ajax.js'></script>
 </head>
 <body>
     <%-include ("home.ejs")%>
     <br><br>
+    
     <div class="container p-5 bg-dark">
+        <div class="form-group">
+            <input type="text" name="name"  class="form-control" onkeyup="SearchDept(this.value)"/> <!--searchDept is come from ajax file-->
+        </div>
     <table class="table table-info p-5">
         <tr>
             <th>Sr.No</th>
@@ -16,6 +21,7 @@
             <th>Delete</th>
             <th>Update</th>
         </tr>
+        <tbody id="tblBody">
         <%
         if(deptList.length!=0)
         {
@@ -36,7 +42,7 @@
         <%
         }
         %>
-        
+        </tbody>
     </table>
     </div>
 </body>

@@ -59,3 +59,16 @@ exports.finalUpdateDept = (did, name) => {
     });
   });
 };
+
+exports.getDeptByName=(deptname)=>{
+  return new Promise((resolve,reject)=>{
+    conn.query("select * from department where deptname like '%" +deptname+ "%'",(err,result)=>{
+      if(err){
+        reject(err);
+        return reject(err);
+      } else {
+        resolve(result);
+      }
+    });
+  });
+};

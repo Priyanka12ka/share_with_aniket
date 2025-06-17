@@ -56,8 +56,8 @@ exports.updateDept=((req,res)=>
 });
 
 exports.deptFinalUpdate = (req, res) => {
-    console.log("Received POST to /updatedept");
-    console.log("Request Body:", req.body);
+   // console.log("Received POST to /updatedept");
+   // console.log("Request Body:", req.body);
     let { id, name } = req.body;
     let promise = deptmodel.finalUpdateDept(id, name);
     promise.then((result) => {
@@ -71,3 +71,16 @@ exports.deptFinalUpdate = (req, res) => {
         res.send("Dept not updated.");
     })
 }
+
+
+exports.searchDeptByUsingName=((req, res)=>{
+  let name=req.query.dn;
+  //console.log(name);
+  let promise=deptmodel.getDeptByName(name);
+  promise.then((result)=>{
+    res.json(result); ///goes to ajax
+  }).catch((err)=>{
+    res.send("Something went wrong");
+  });
+});
+
