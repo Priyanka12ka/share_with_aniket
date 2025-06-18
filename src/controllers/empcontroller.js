@@ -12,14 +12,19 @@ exports.newemp=(req,res)=>
     
 }
 exports.saveEmployee = (req, res) => {
-    let { name, email, contact, sal, deptid } = req.body;
+    let {eid, name, mail, contact, sal, photo, deptid } = req.body;
     let filename = req.file.filename;
 
-    let promise = empcrud.saveEmployee(name, email, contact, sal, filename, deptid);
+    let promise = empcrud.saveEmployee(eid, name, mail, contact, sal, photo, deptid);
+    console.log(name);
     promise.then((result) => {
         let p = dbmodel.getAllDept();
         p.then((r) => {
             res.render("newemp.ejs", { deptList: r, msg: result });
+        });
+        p.catch((err)=>
+        {
+             res.send(err);
         });
     });
     promise.catch((err)=>
