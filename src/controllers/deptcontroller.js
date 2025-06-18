@@ -83,4 +83,3 @@ exports.searchDeptByUsingName=((req, res)=>{
     res.send("Something went wrong");
   });
 });
-

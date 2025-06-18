@@ -32,28 +32,29 @@
       <div class="form-group">
             <select name="deptid" class="form-control">
                 <option >Choose Dept</option>
-                <%
-                     deptList.forEach((deptData,index)=>
-                     {
-                %>
-                         <option value="<%=deptData.deptid%>"><%=deptData.deptname%></option>
-                        <%
-                     })
-                %>
+                   <% 
+                   list.forEach((row,index)=>
+                   {
+                       %>
+                       <option value="<%= row.deptid%>"><%=row.deptname%></option>
+                       <%
+
+                   });
+                   %>
             </select>
         </div>
          <div class="form-group">
             
                 <input type="submit" name="s"  class="form-control" value="Add new Employee"/>
         </div>
-         <%
+        <%
         if(msg.length!=0)
         {
         %>
         <div class="alert alert-success" role="alert">
             <%= msg %>
          </div>
-         <%
+        <%
         }
         %>
         </form>

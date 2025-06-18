@@ -1,17 +1,16 @@
 let dbmodel=require("../model/savedeptmodel.js");  //to fetch handler function from mode-savedeptmodel-....
 let empcrud=require("../model/empcrudmodel.js");
+const { none } = require("../middleware/fileupload.js");
+
 exports.newemp=(req,res)=>
 {
-    let promise=dbmodel.getAllDept();  //to fetch all dept in dropdown which will be selected by Employee
-    promise.then((result)=>
+    let p=dbmodel.getAllDept();
+    p.then((result)=>
     {
-       
-         res.render("newemp.ejs", {deptList:result},msg=" ");
-
-    });
-
+       res.render("newemp.ejs", {list:result , msg:" "});
+    })
+    
 }
-
 exports.saveEmployee = (req, res) => {
     let { name, email, contact, sal, deptid } = req.body;
     let filename = req.file.filename;
@@ -30,3 +29,10 @@ exports.saveEmployee = (req, res) => {
 
 };
 
+
+
+exports.viewemp=((req,res)=>
+{
+    
+  res.render("viewemp.ejs");
+})

@@ -14,9 +14,9 @@ router.get("/upddept",deptctrl.updateDept);
 router.post("/updatedept",deptctrl.deptFinalUpdate);
 router.get("/searchDeptByName",deptctrl.searchDeptByUsingName);
 router.get("/newemployee",empcntrl.newemp);
-
-
 router.post("/saveemp",upload.single("photo"),empcntrl.saveEmployee);
+
+router.get("/viewemployee",empcntrl.viewemp);
 
 router.get("/testup",(req,res)=>
 {

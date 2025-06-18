@@ -24,10 +24,10 @@ exports.getAllDept=()=>{
         {
             if(err)
             {
-                reject("Error while adding department... Error is :"+err);
+                return reject("Error while adding department... Error is :"+err);
             }
             else{
-                resolve(result);
+                return resolve(result);
             }
         });
     });
