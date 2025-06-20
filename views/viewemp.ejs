@@ -4,8 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script type="text/javascript" src="ajax.js"></script>
+
 </head>
 <body>
-    <h1>hello</h1>
+    <%-include("home.ejs")%>
+   
+    <div class="container bg-dark p-5 mt-5">
+        <div class="form-group">
+            <select name="deptid" id="deptid" class="form-control" onchange="getEmpByDept()">
+                <option  value="0">Choose Dept</option>
+                   <% 
+                   list.forEach((row,index)=>
+                   {
+                       %>
+                       <option value="<%= row.deptid%>"><%=row.deptname%></option>
+                       <%
+
+                   });
+                   %>
+
+            </select>
+            <table class="table bg-white mt-5">
+                <thead >
+                    <tr>
+                        <th>Name</th><th>Email</th><th>Contact</th><th>Salary</th><th>Photo</th><th>deptname</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
 </body>
 </html>

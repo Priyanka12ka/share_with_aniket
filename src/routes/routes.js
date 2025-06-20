@@ -13,11 +13,13 @@ router.get("/deldept",deptctrl.delDept);
 router.get("/upddept",deptctrl.updateDept);
 router.post("/updatedept",deptctrl.deptFinalUpdate);
 router.get("/searchDeptByName",deptctrl.searchDeptByUsingName);
+
+
 router.get("/newemployee",empcntrl.newemp);
 router.post("/saveemp",upload.single("photo"),empcntrl.saveEmployee);
-
+router.get("/searchEmail",empcntrl.verifyEmail)
 router.get("/viewemployee",empcntrl.viewemp);
-
+router.get("/getEmpByDeptId",empcntrl.getEmpByDeptId);
 router.get("/testup",(req,res)=>
 {
     res.render("demoupload.ejs");
